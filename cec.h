@@ -1,13 +1,16 @@
 /* cec.h: definitions for cec */
 
+#ifndef __CEC_H__
+#define __CEC_H__
+
 typedef unsigned char uchar;
 
 #ifdef __APPLE__
 typedef unsigned int uint;
 #endif
 
-int debug;
-char *progname;
+extern int debug;
+extern char *progname;
 extern char hbacecfile[];
 
 int netopen(char *name);
@@ -33,3 +36,4 @@ enum {
 
 #define VERSION "cec-14"
 
+#endif

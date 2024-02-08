@@ -47,3 +47,10 @@ versions of man accept a "-l" option:
 
 The CEC protocol is documented in cec.txt.
 
+
+---
+
+2024-02-08 : Ediazcomellas
+This fork makes small changes to the CEC software, to allow it to compile in modern systems.
+
+

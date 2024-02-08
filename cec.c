@@ -73,6 +73,10 @@ void	showtable(int);
 
 extern int errno;
 
+int debug;
+char *progname;
+
+
 Shelf	tab[Ntab];
 int	ntab;
 uchar	contag;

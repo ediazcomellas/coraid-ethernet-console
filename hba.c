@@ -9,7 +9,7 @@
 
 #include "cec.h"
 
-int fd;
+extern int fd;
 static char hba_bytes[1<<14];
 static int hba_len;
 
