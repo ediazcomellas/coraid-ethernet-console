@@ -1,0 +1,17 @@
+#
+# Copyright (c) 2013 Coraid, Inc.
+# All rights reserved.
+#
+
+i pkginfo
+i copyright
+i depend
+
+# Coraid Ethernet Console Utility
+d none usr					0755	root	sys
+d none usr/sbin					0755	root	bin
+f none usr/sbin/cec				0555	root	bin
+d none usr/share				0755	root	sys
+d none usr/share/man				0755	root	bin
+d none usr/share/man/man1m			0755	root	bin
+f none usr/share/man/man1m/cec.1m		0644	root	bin

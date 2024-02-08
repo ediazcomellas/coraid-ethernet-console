@@ -1,0 +1,77 @@
+-*- change-log -*-
+2013-07-17 Justin Sanders <justin@coraid.com>
+	support Coraid HBA as alternative to ethernet interface
+
+2013-04-30 Ed Cashin <ecashin@coraid.com>
+	define cec version only in cec.h
+	cec-13
+
+2012-06-25 Justin Sanders <justin@coraid.com>
+	avoid sign extension for correct ioctl command on Mac
+
+2011-05-21 Steven Stallion <stallion@coraid.com>
+	fixed solaris support
+	added support for SVR4 packaging
+	cec-12
+
+2009-06-08 Justin Sanders <justin@coraid.com>
+	add support for windows
+	use GPL
+	cec-11
+
+2008-01-08 Sam Hopkins <sah@coraid.com>
+	bugfix: only process Toffer messages in probe
+	OSX compatibility updates
+	u_char cleanup
+	cec-10
+
+2008-09-08 Ed Cashin <ecashin@coraid.com>
+	make Solaris builds easier
+	cec-9
+
+2007-08-29 Sam Hopkins <sah@coraid.com>
+	permit cec to reestablish connection as necessary
+	cec-8
+
+2007-05-04 Sam Hopkins <sah@coraid.com>
+	bugfix: cec manpage installed in /usr/man instead of /usr/share/man
+	bugfix: processed non-cec packets in probe
+	change selection interface to remove connection id
+	add flags -m, -p, -q, -v, -w, -?
+	update manpage to describe new interface and flags
+	permit solaris user to omit /dev/ in specifying interface
+	cec-7
+
+2006-12-28 Ed Cashin <ecashin@coraid.com>
+	cast isdigit arg to unsigned char (sign extension warnings)
+	add install target to makefile
+	cec-6
+
+2006-10-23 Sam Hopkins <sah@coraid.com>
+	manpage update for -e flag
+	cec-5
+
+2006-10-23 Erik Quanstrom <quanstro@coraid.com>
+	bugfix: exit with raw mode enabled
+	add protocol document description cec.txt
+	add -e flag to set escape character
+	add support for solaris
+
+2006-09-14 Sam Hopkins <sah@coraid.com>
+	bugfix: hang "connecting..." to nonexistent destination
+	manpage update
+	cec-4
+
+2006-08-21 Sam "Hopkins" <sah@coraid.com>
+	add extra OOB processing for escape sequence
+	cec-3
+
+2006-07-19 Ed Cashin <ecashin@coraid.com>
+	cleanup code to avoid compiler warnings
+	use FreeBSD license
+	add manpage
+	cec-2
+
+2006-07-13 Sam Hopkins <sah@coraid.com>
+	release cec-1
+

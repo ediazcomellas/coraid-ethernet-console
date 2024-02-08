@@ -1,0 +1,109 @@
+.TH cec 8
+.SH NAME
+cec, CEC \- Coraid Ethernet Console
+.SH SYNOPSIS
+.nf
+.B cec [-s shelf] [-m mac] interface
+.fi
+.SH DESCRIPTION
+The \fBcec\fP command uses raw sockets to connect to a CEC
+server for console 
+access.  All clients share the same session.  Coraid
+appliances are currently the only CEC servers.
+.PP
+A \fBcec\fP process starts by probing the specified network interface
+(e.g., "eth0")
+for available CEC servers.  A Coraid HBA can be used as an interface
+by specifying "hba" as the interface name, provided the HBA driver 
+has CEC support.  If a cec server is specified using the
+\fB-s\fP or \fB-m\fP flags, the connection will
+proceed immediately upon discovery of the first CEC server
+matching the specification.  Otherwise, a selection prompt
+will be displayed showing the discovered cec servers 
+available for communication.  Servers found on multiple
+destination mac addresses will be listed in a comma
+separated list as follows.  If no servers are discovered,
+cec exits.
+.IP
+.EX
+ SHELF | EA
+ 5       003048865F1E,003048865F1F
+ [#qp]: 
+.EE
+.LP
+The selection prompt accepts ...
+.TP
+\fB<shelf>\fP
+The shelf number of the CEC server
+to connect to (from the first column).
+.TP
+\fB<shelf> <ea>\fP
+The shelf number and specific mac interface
+to connect to.
+.TP
+\fBp\fP
+The letter 'p' directs \fBcec\fP to probe the
+interface 
+again.
+.TP
+\fBq\fP
+The letter 'q' directs \fBcec\fP to quit.
+.PP
+If a mac address is not specified, the first mac address
+listed for a shelf will be used.
+
+Once connected to a cec server, entering the escape sequence
+will drop the user into an escape prompt where the user may
+type 'q' to quit the connection, 'i' to send the escape sequence
+across the connection, or '.' to continue the connection.
+The escape sequence is printed on connection.
+.SS Options
+.TP
+\fB-d\fP
+The -d flag causes \fBcec\fP to output copious debugging information.
+Only for the strong of heart.
+.TP
+\fB-e\fP
+The -e flag takes an argument, a character e to be used as the base for
+the escape sequence, e.g., ^e.  The character must be a-y, inclusive.
+.TP
+\fB-m\fP
+The -m flag takes an argument, the mac address of the desired CEC server.
+.TP
+\fB-p\fP
+The -p flag causes \fBcec\fP to probe the specified interface, print the
+list of discovered servers as formatted in the selection interface, and exit.
+The -p flag also sets the -q flag to make the output easier to parse in scripts.
+.TP
+\fB-q\fP
+The -q flag causes \fBcec\fP to operate in quiet mode, removing output
+letting the user know about actions being performed (probing, connecting, etc).
+.TP
+\fB-s\fP
+The -s flag takes an argument, the shelf address of the desired CEC
+server.
+.TP
+\fB-v\fP
+The -v flag reports the cec version and exits.
+.TP
+\fB-w\fP
+The -w flag takes an argument, the number of seconds to use as a timeout.  This
+timeout defaults to 2, and governs how long to wait on probe, connection,
+and communication timeout.  It must be greater than 0.
+.TP
+\fB-?\fP
+The -? flag prints the cec usage and exits.
+.SH NOTES
+The
+.I cec
+command must be run as root to obtain raw ethernet access.
+
+If the -s or -m flags are used cec will exit upon closing the connection.
+Otherwise, cec will return to the selection prompt upon connection
+close.
+
+Some say that \fBcec\fP is pronounced "kick."
+.LP
+.SH AUTHORS
+Brantley Coile, Ed Cashin, Erik Quanstrom, Sam Hopkins
+
